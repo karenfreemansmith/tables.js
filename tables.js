@@ -4,9 +4,16 @@ function searchTable() {
   rows = table.getElementsByTagName("tr");
 
   for (i = 1; i < (rows.length); i++) {
-    x = rows[i].getElementsByTagName("td")[2];
-    y = rows[i].getElementsByTagName("td")[3];
-    if (x.innerHTML.toLowerCase().includes(term.toLowerCase()) || y.innerHTML.toLowerCase().includes(term.toLowerCase())) {
+    // can search one or more column by editing here...
+    // this example searches all 4 columns that have text values
+    a = rows[i].getElementsByTagName("td")[1];
+    b = rows[i].getElementsByTagName("td")[2];
+    c = rows[i].getElementsByTagName("td")[3];
+    d = rows[i].getElementsByTagName("td")[4];
+    if (a.innerHTML.toLowerCase().includes(term.toLowerCase()) ||
+        b.innerHTML.toLowerCase().includes(term.toLowerCase()) ||
+        c.innerHTML.toLowerCase().includes(term.toLowerCase()) ||
+        d.innerHTML.toLowerCase().includes(term.toLowerCase())) {
       rows[i].style.display='';
     } else {
       rows[i].style.display='none';
