@@ -64,22 +64,22 @@ function showPage(start) {
   var links = document.getElementById("pageLinks");
   links.innerHTML = "";
   for (p=1; p<=pages; p++) {
-    if(p==1 && p!=current) {
-      links.innerHTML += "<button onClick='showItems(0)'>&lt;&lt;</button>";
+    if(p==current) {
+      links.innerHTML += "<button onClick='showPage(" + (p-1)*items + ")'>" + p + "</button>"
+    } else if(p==2 && pages>9) {
+      links.innerHTML += "<button onClick='showPage(" + (p-1)*items + ")'>" + p + "</button>"
+    } else if(p==pages-1 && pages>9) {
+      links.innerHTML += "<button onClick='showPage(" + (p-1)*items + ")'>" + p + "</button>"
     } else if(p==current-1) {
-      links.innerHTML += "<button onClick='showItems(" + (p-1)*items + ")'>&lt;</button>";
-    } else if(p==2 && p!=current) {
-      links.innerHTML += "<button onClick='showItems(" + (p-1)*items + ")'>" + p + "</button>"
-    } else if(p==current) {
-      links.innerHTML += "<button onClick='showItems(" + (p-1)*items + ")'>" + p + "</button>"
-    } else if(p==pages && p!=current) {
-      links.innerHTML += "<button onClick='showItems(" + (p-1)*items + ")'>&gt;&gt;</button>";
-    } else if(p==pages-1 && p!=current) {
-      links.innerHTML += "<button onClick='showItems(" + (p-1)*items + ")'>" + p + "</button>"
+      links.innerHTML += "<button onClick='showPage(" + (p-1)*items + ")'>&lt;</button> ";
     } else if(p==current+1) {
-      links.innerHTML += "<button onClick='showItems(" + (p-1)*items + ")'>&gt;</button>";
+      links.innerHTML += " <button onClick='showPage(" + (p-1)*items + ")'>&gt;</button>";
+    } else if(p==pages) {
+      links.innerHTML += " <button onClick='showPage(" + (p-1)*items + ")'>&gt;&gt;</button>";
+    } else if(p==1) {
+      links.innerHTML += "<button onClick='showPage(0)'>&lt;&lt;</button> ";
     }else {
-      links.innerHTML += ".";
+      links.innerHTML += "";
     }
   }
 

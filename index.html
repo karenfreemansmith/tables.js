@@ -1,51 +1,167 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sample Table</title>
+  <meta charset="utf-8">
+  <title>Sample Table</title>
 </head>
 <body>
-<br>
-<input type='text' id='searchTerm'><button onClick='searchTable()'>SEARCH</button> | 
-<span id='pageLinks'><button>ALL</button></span> | 
-items per page <select onchange='showPage(0)' id='perpage'>
-  <option value='0'>all
-  <option value='2'>2
-  <option value='5'>5
-  <option value='25'>25
-  <option value='50'>50
-  <option value='100'>100
-</select>
-<br>
-<table id='tableId'>
-<tr>
-  <th onclick='sortTable(0)'>ID</th>
-  <th onclick='sortTable(1)'>First Name</th>
-  <th onclick='sortTable(2)'>Last Name</th>
-  <th onclick='sortTable(3)'>City</th>
-  <th onclick='sortTable(4)'>Country</th>
-</tr>
-<tr><td>1</td><td>James</td><td>Smith</td><td>Tokyo</td><td>Japan</td></tr>
-<tr><td>2</td><td>Mary</td><td>Johnson</td><td>New York</td><td>USA</td></tr>
-<tr><td>3</td><td>John</td><td>Williams</td><td>Sao Paulo</td><td>Brazil</td></tr>
-<tr><td>4</td><td>Patricia</td><td>Jones</td><td>Seoul</td><td>South Korea</td></tr>
-<tr><td>5</td><td>Robert</td><td>Brown</td><td>Mexico City</td><td>Mexico</td></tr>
-<tr><td>6</td><td>Linda</td><td>Davis</td><td>Osaka</td><td>Japan</td></tr>
-<tr><td>7</td><td>Michael</td><td>Miller</td><td>Manila</td><td>Philippines</td></tr>
-<tr><td>8</td><td>Barbara</td><td>Wilson</td><td>Mumbai</td><td>India</td></tr>
-<tr><td>9</td><td>William</td><td>Moore</td><td>Delhi</td><td>India</td></tr>
-<tr><td>10</td><td>Elizabeth</td><td>Taylor</td><td>Jakarta</td><td>Indonesia</td></tr>
+  <h1>Search-Sort-Paginate Table Demo</h1>
+  <hr>
+  <input type='text' id='searchTerm'><button onClick='searchTable()'>SEARCH</button> |
+  <span id='pageLinks'><button>ALL</button></span> |
+  items per page <select onchange='showPage(0)' id='perpage'>
+    <option value='0' selected>all
+    <option value='5'>5
+    <option value='10'>10
+    <option value='20'>20
+    <option value='40'>40
+    <option value='80'>80
+  </select>
+  <hr>
+  <table id='tableId'>
+  <tr>
+    <th onclick='sortTable(0)'>ID</th>
+    <th onclick='sortTable(1)'>First Name</th>
+    <th onclick='sortTable(2)'>Last Name</th>
+    <th onclick='sortTable(3)'>City</th>
+    <th onclick='sortTable(4)'>Country</th>
+  </tr>
+  <tr><td>1</td><td>James</td><td>Smith</td><td>Tokyo</td><td>Japan</td></tr>
+  <tr><td>2</td><td>Mary</td><td>Johnson</td><td>New York</td><td>USA</td></tr>
+  <tr><td>3</td><td>John</td><td>Williams</td><td>Sao Paulo</td><td>Brazil</td></tr>
+  <tr><td>4</td><td>Patricia</td><td>Jones</td><td>Seoul</td><td>South Korea</td></tr>
+  <tr><td>5</td><td>Robert</td><td>Brown</td><td>Mexico City</td><td>Mexico</td></tr>
+  <tr><td>6</td><td>Linda</td><td>Davis</td><td>Osaka</td><td>Japan</td></tr>
+  <tr><td>7</td><td>Michael</td><td>Miller</td><td>Manila</td><td>Philippines</td></tr>
+  <tr><td>8</td><td>Barbara</td><td>Wilson</td><td>Mumbai</td><td>India</td></tr>
+  <tr><td>9</td><td>William</td><td>Moore</td><td>Delhi</td><td>India</td></tr>
+  <tr><td>10</td><td>Elizabeth</td><td>Taylor</td><td>Jakarta</td><td>Indonesia</td></tr>
 
-<tr><td>11</td><td>David</td><td>Anderson</td><td>Lagos</td><td>Nigeria</td></tr>
-<tr><td>12</td><td>Jennifer</td><td>Thomas</td><td>Kolkata</td><td>India</td></tr>
-<tr><td>13</td><td>Richard</td><td>Jackson</td><td>Cairo</td><td>Egypt</td></tr>
-<tr><td>14</td><td>Maria</td><td>White</td><td>Los Angeles</td><td>USA</td></tr>
-<tr><td>15</td><td>Charles</td><td>Harris</td><td>Buenos Aires</td><td>Argentina</td></tr>
-<tr><td>16</td><td>Susan</td><td>Martin</td><td>Rio de Janeiro</td><td>Brazil</td></tr>
-<tr><td>17</td><td>Joseph</td><td>THompson</td><td>Moscow</td><td>Russia</td></tr>
-<tr><td>18</td><td>Margaret</td><td>Garcia</td><td>Shanghai</td><td>China</td></tr>
-<tr><td>19</td><td>Thomas</td><td>Martinez</td><td>Karachi</td><td>Pakistan</td></tr>
+  <tr><td>11</td><td>David</td><td>Anderson</td><td>Lagos</td><td>Nigeria</td></tr>
+  <tr><td>12</td><td>Jennifer</td><td>Thomas</td><td>Kolkata</td><td>India</td></tr>
+  <tr><td>13</td><td>Richard</td><td>Jackson</td><td>Cairo</td><td>Egypt</td></tr>
+  <tr><td>14</td><td>Maria</td><td>White</td><td>Los Angeles</td><td>USA</td></tr>
+  <tr><td>15</td><td>Charles</td><td>Harris</td><td>Buenos Aires</td><td>Argentina</td></tr>
+  <tr><td>16</td><td>Susan</td><td>Martin</td><td>Rio de Janeiro</td><td>Brazil</td></tr>
+  <tr><td>17</td><td>Joseph</td><td>Thompson</td><td>Moscow</td><td>Russia</td></tr>
+  <tr><td>18</td><td>Margaret</td><td>Garcia</td><td>Shanghai</td><td>China</td></tr>
+  <tr><td>19</td><td>Thomas</td><td>Martinez</td><td>Karachi</td><td>Pakistan</td></tr>
+  <tr><td>20</td><td>Dorothy</td><td>Robinson</td><td>Paris</td><td>France</td></tr>
 
-</table>
-<script src="tables.js"></script>
+  <tr><td>21</td><td>Christopher</td><td>Lewis</td><td>Istanbul</td><td>Turkey</td></tr>
+  <tr><td>22</td><td>Lisa</td><td>Lee</td><td>Nagoya</td><td>Japan</td></tr>
+  <tr><td>23</td><td>Daniel</td><td>Walker</td><td>Beijing</td><td>China</td></tr>
+  <tr><td>24</td><td>Nancy</td><td>Hall</td><td>Chicago</td><td>USA</td></tr>
+  <tr><td>25</td><td>Paul</td><td>Allen</td><td>London</td><td>UK</td></tr>
+  <tr><td>26</td><td>Karen</td><td>Young</td><td>Shenzhen</td><td>China</td></tr>
+  <tr><td>27</td><td>Mark</td><td>Hernandez</td><td>Essen</td><td>Germany</td></tr>
+  <tr><td>28</td><td>Betty</td><td>King</td><td>Tehran</td><td>Iran</td></tr>
+  <tr><td>29</td><td>Donald</td><td>Wright</td><td>Bogota</td><td>Columbia</td></tr>
+  <tr><td>30</td><td>Helen</td><td>Lopez</td><td>Lima</td><td>Peru</td></tr>
+
+  <tr><td>31</td><td>George</td><td>Hill</td><td>Bangkok</td><td>Thailand</td></tr>
+  <tr><td>32</td><td>Sandra</td><td>Scott</td><td>Johannesburg</td><td>South Africa</td></tr>
+  <tr><td>33</td><td>Kenneth</td><td>Green</td><td>Channai</td><td>India</td></tr>
+  <tr><td>34</td><td>Donna</td><td>Adams</td><td>Taipei</td><td>Taiwan</td></tr>
+  <tr><td>35</td><td>Steven</td><td>Baker</td><td>Baghdad</td><td>Iraq</td></tr>
+  <tr><td>36</td><td>Carol</td><td>Gonzalez</td><td>Santiago</td><td>Chile</td></tr>
+  <tr><td>37</td><td>Edward</td><td>Nelson</td><td>Bangalore</td><td>India</td></tr>
+  <tr><td>38</td><td>Ruth</td><td>Carter</td><td>Hyberabad</td><td>India</td></tr>
+  <tr><td>39</td><td>Brian</td><td>Mitchell</td><td>St. Petersburg</td><td>Russia</td></tr>
+  <tr><td>40</td><td>Sharon</td><td>Perez</td><td>Philadelphia</td><td>USA</td></tr>
+
+  <tr><td>41</td><td>Ronald</td><td>Roberts</td><td>Lahore</td><td>Kinshasa</td></tr>
+  <tr><td>42</td><td>Michelle</td><td>Turner</td><td>Miami</td><td>USA</td></tr>
+  <tr><td>43</td><td>Anthony</td><td>Phillips</td><td>Ho Chi Minh City</td><td>Vietnam</td></tr>
+  <tr><td>44</td><td>Laura</td><td>Campbell</td><td>Madrid</td><td>Spain</td></tr>
+  <tr><td>45</td><td>Kevin</td><td>Parker</td><td>Tianjin</td><td>China</td></tr>
+  <tr><td>46</td><td>Sarah</td><td>Evans</td><td>Kuala Lumpur</td><td>Malaysia</td></tr>
+  <tr><td>47</td><td>Jason</td><td>Edwards</td><td>Toronto</td><td>Canada</td></tr>
+  <tr><td>48</td><td>Kimberly</td><td>Collins</td><td>Milan</td><td>Italy</td></tr>
+  <tr><td>49</td><td>Matthew</td><td>Stewart</td><td>Shenyang</td><td>China</td></tr>
+  <tr><td>50</td><td>Deborah</td><td>Sanchez</td><td>Dallas/Ft Worth</td><td>USA</td></tr>
+
+  <tr><td>51</td><td>Gary</td><td>Morris</td><td>Boston</td><td>USA</td></tr>
+  <tr><td>52</td><td>Jessica</td><td>Rogers</td><td>Belo Horizonte</td><td>Brazil</td></tr>
+  <tr><td>53</td><td>Timothy</td><td>Reed</td><td>Khartoum</td><td>Sudan</td></tr>
+  <tr><td>54</td><td>Shirley</td><td>Cook</td><td>Riyadh</td><td>Saudi Arabia</td></tr>
+  <tr><td>55</td><td>Jose</td><td>Morgan</td><td>Singapore</td><td>Singapore</td></tr>
+  <tr><td>56</td><td>Cynthia</td><td>Bell</td><td>Washington</td><td>USA</td></tr>
+  <tr><td>57</td><td>Larry</td><td>Murphy</td><td>Detroit</td><td>USA</td></tr>
+  <tr><td>58</td><td>Angela</td><td>Bailey</td><td>Barcelona</td><td>Spain</td></tr>
+  <tr><td>59</td><td>Jeffery</td><td>Rivera</td><td>Houston</td><td>USA</td></tr>
+  <tr><td>60</td><td>Melissa</td><td>Cooper</td><td>Athens</td><td>Greece</td></tr>
+
+  <tr><td>61</td><td>Frank</td><td>Richardson</td><td>Berlin</td><td>Germany</td></tr>
+  <tr><td>62</td><td>Brenda</td><td>Cox</td><td>Sydney</td><td>Australia</td></tr>
+  <tr><td>63</td><td>Scott</td><td>Howard</td><td>Atlanta</td><td>USA</td></tr>
+  <tr><td>64</td><td>Amy</td><td>Ward</td><td>Guadalajara</td><td>Mexico</td></tr>
+  <tr><td>65</td><td>Eric</td><td>Torres</td><td>San Francisco</td><td>USA</td></tr>
+  <tr><td>66</td><td>Anna</td><td>Peterson</td><td>Montreal</td><td>Canada</td></tr>
+  <tr><td>67</td><td>Stephen</td><td>Gray</td><td>Monterey</td><td>Mexico</td></tr>
+  <tr><td>68</td><td>Rebecca</td><td>Ramirez</td><td>Melbourne</td><td>Australia</td></tr>
+  <tr><td>69</td><td>Andrew</td><td>James</td><td>Ankara</td><td>Recife</td></tr>
+  <tr><td>70</td><td>Virginia</td><td>Watson</td><td>Phoenix</td><td>Arizona</td></tr>
+
+  <tr><td>71</td><td>Raymond</td><td>Brooks</td><td>Durban</td><td>South Africa</td></tr>
+  <tr><td>72</td><td>Kathleen</td><td>Kelly</td><td>Porto Alegre</td><td>Brazil</td></tr>
+  <tr><td>73</td><td>Gregory</td><td>Sanders</td><td>Dalian</td><td>South Africa</td></tr>
+  <tr><td>74</td><td>Pamela</td><td>Price</td><td>Jeddah</td><td>Saudi Arabia</td></tr>
+  <tr><td>75</td><td>Joshua</td><td>Bennett</td><td>Seattle</td><td>USA</td></tr>
+  <tr><td>76</td><td>Martha</td><td>Wood</td><td>Cape Town</td><td>South Africa</td></tr>
+  <tr><td>77</td><td>Jerry</td><td>Barnes</td><td>San Diego</td><td>USA</td></tr>
+  <tr><td>78</td><td>Debra</td><td>Ross</td><td>Fortaleza</td><td>Brazil</td></tr>
+  <tr><td>79</td><td>Dennis</td><td>Henderson</td><td>Curitiba</td><td>Brazil</td></tr>
+  <tr><td>80</td><td>Amanda</td><td>Coleman</td><td>Rome</td><td>Italy</td></tr>
+
+  <tr><td>81</td><td>Walter</td><td>Jenkins</td><td>Naples</td><td>Italy</td></tr>
+  <tr><td>82</td><td>Stephanie</td><td>Perry</td><td>Minneapolis/St. Paul</td><td>USA</td></tr>
+  <tr><td>83</td><td>Patrick</td><td>Powell</td><td>Tel Aviv</td><td>Israel</td></tr>
+  <tr><td>84</td><td>Carolyn</td><td>Long</td><td>Birmingham</td><td>UK</td></tr>
+  <tr><td>85</td><td>Peter</td><td>Patterson</td><td>Fankfurt</td><td>Germany</td></tr>
+  <tr><td>86</td><td>Christine</td><td>Huges</td><td>Lisbon</td><td>Portugal</td></tr>
+  <tr><td>87</td><td>Harold</td><td>Flores</td><td>Manchester</td><td>UK</td></tr>
+  <tr><td>88</td><td>Marie</td><td>Washington</td><td>San Juan</td><td>Puerto Rico</td></tr>
+  <tr><td>89</td><td>Douglas</td><td>Butler</td><td>Katowice</td><td>Poland</td></tr>
+  <tr><td>90</td><td>Janet</td><td>Simmons</td><td>Tashkent</td><td>Uzbekistan</td></tr>
+
+  <tr><td>91</td><td>Henry</td><td>Foster</td><td>Fukuoka</td><td>Japan</td></tr>
+  <tr><td>92</td><td>Catherine</td><td>Gonzales</td><td>Baku</td><td>Azerbaijan</td></tr>
+  <tr><td>93</td><td>Carl</td><td>Bryant</td><td>St. Louis</td><td>USA</td></tr>
+  <tr><td>94</td><td>Frances</td><td>Alexander</td><td>Baltimore</td><td>USA</td></tr>
+  <tr><td>95</td><td>Arthur</td><td>Russell</td><td>Sapporo</td><td>Japan</td></tr>
+  <tr><td>96</td><td>Ann</td><td>Griffin</td><td>Tampa</td><td>USA</td></tr>
+  <tr><td>97</td><td>Ryan</td><td>Diaz</td><td>Taichung</td><td>Taiwan</td></tr>
+  <tr><td>98</td><td>Joyce</td><td>Hayes</td><td>Warsaw</td><td>Poland</td></tr>
+  <tr><td>99</td><td>Roger</td><td>Myers</td><td>Denver</td><td>USA</td></tr>
+
+  <tr><td>100</td><td>Diane</td><td>Ford</td><td>Cologne</td><td>Germany</td></tr>
+  <tr><td>101</td><td>James</td><td>Smith</td><td>Hamburg</td><td>Germany</td></tr>
+  <tr><td>102</td><td>Mary</td><td>Johnson</td><td>Dubai</td><td>UAE</td></tr>
+  <tr><td>103</td><td>John</td><td>Williams</td><td>Pretoria</td><td>South Africa</td></tr>
+  <tr><td>104</td><td>Patricia</td><td>Jones</td><td>Vancouver</td><td>Canada</td></tr>
+  <tr><td>105</td><td>Robert</td><td>Brown</td><td>Beirut</td><td>Lebanon</td></tr>
+  <tr><td>106</td><td>Linda</td><td>Davis</td><td>Budapest</td><td>Hungary</td></tr>
+  <tr><td>107</td><td>Michael</td><td>Miller</td><td>Cleveland</td><td>USA</td></tr>
+  <tr><td>108</td><td>Barbara</td><td>Wilson</td><td>Pittsburg</td><td>USA</td></tr>
+  <tr><td>109</td><td>William</td><td>Moore</td><td>Caminas</td><td>Brazil</td></tr>
+  <tr><td>110</td><td>Elizabeth</td><td>Taylor</td><td>Harare</td><td>Zimbabwe</td></tr>
+
+  <tr><td>111</td><td>David</td><td>Anderson</td><td>Brasilia</td><td>Brazil</td></tr>
+  <tr><td>112</td><td>Jennifer</td><td>Thomas</td><td>Kuwait</td><td>Kuwait</td></tr>
+  <tr><td>113</td><td>Richard</td><td>Jackson</td><td>Munich</td><td>Germany</td></tr>
+  <tr><td>114</td><td>Maria</td><td>White</td><td>Portland</td><td>USA</td></tr>
+  <tr><td>115</td><td>Charles</td><td>Harris</td><td>Brussels</td><td>Belgium</td></tr>
+  <tr><td>116</td><td>Susan</td><td>Martin</td><td>Vienna</td><td>Austria</td></tr>
+  <tr><td>117</td><td>Joseph</td><td>Thompson</td><td>San Jose</td><td>USA</td></tr>
+  <tr><td>118</td><td>Margaret</td><td>Garcia</td><td>Damman</td><td>Saudi Arabia</td></tr>
+  <tr><td>119</td><td>Thomas</td><td>Martinez</td><td>Copenhagen</td><td>Denmark</td></tr>
+  <tr><td>120</td><td>Dorothy</td><td>Robinson</td><td>Brisbane</td><td>Australia</td></tr>
+
+  <tr><td>121</td><td>Christopher</td><td>Lewis</td><td>Riverside</td><td>USA</td></tr>
+  <tr><td>122</td><td>Lisa</td><td>Lee</td><td>Cincinnati</td><td>USA</td></tr>
+  <tr><td>123</td><td>Daniel</td><td>Walker</td><td>Accra</td><td>Ghana</td></tr>
+  </table>
+  <script src="tables.js"></script>
 </body>
 </html>
