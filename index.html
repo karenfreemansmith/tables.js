@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sample Table</title>
+</head>
+<body>
+<br>
+<input type='text' id='searchTerm'><button onClick='searchTable()'>SEARCH</button> | 
+<span id='pageLinks'><button>ALL</button></span> | 
+items per page <select onchange='showPage(0)' id='perpage'>
+  <option value='0'>all
+  <option value='2'>2
+  <option value='5'>5
+  <option value='25'>25
+  <option value='50'>50
+  <option value='100'>100
+</select>
+<br>
+<table id='tableId'>
+<tr><th>ID</th><th>First Name</th><th>Last Name</th><th>City</th><th>Country</th></tr>
+<tr><td>1</td><td>James</td><td>Smith</td><td>Tokyo</td><td>Japan</td></tr>
+<tr><td>2</td><td>Mary</td><td>Johnson</td><td>New York</td><td>USA</td></tr>
+<tr><td>3</td><td>John</td><td>Williams</td><td>Sao Paulo</td><td>Brazil</td></tr>
+<tr><td>4</td><td>Patricia</td><td>Jones</td><td>Seoul</td><td>South Korea</td></tr>
+<tr><td>5</td><td>Robert</td><td>Brown</td><td>Mexico City</td><td>Mexico</td></tr>
+<tr><td>6</td><td>Linda</td><td>Davis</td><td>Osaka</td><td>Japan</td></tr>
+<tr><td>7</td><td>Michael</td><td>Miller</td><td>Manila</td><td>Philippines</td></tr>
+<tr><td>8</td><td>Barbara</td><td>Wilson</td><td>Mumbai</td><td>India</td></tr>
+<tr><td>9</td><td>William</td><td>Moore</td><td>Delhi</td><td>India</td></tr>
+<tr><td>10</td><td>Elizabeth</td><td>Taylor</td><td>Jakarta</td><td>Indonesia</td></tr>
+
+<tr><td>11</td><td>David</td><td>Anderson</td><td>Lagos</td><td>Nigeria</td></tr>
+<tr><td>12</td><td>Jennifer</td><td>Thomas</td><td>Kolkata</td><td>India</td></tr>
+<tr><td>13</td><td>Richard</td><td>Jackson</td><td>Cairo</td><td>Egypt</td></tr>
+<tr><td>14</td><td>Maria</td><td>White</td><td>Los Angeles</td><td>USA</td></tr>
+<tr><td>15</td><td>Charles</td><td>Harris</td><td>Buenos Aires</td><td>Argentina</td></tr>
+<tr><td>16</td><td>Susan</td><td>Martin</td><td>Rio de Janeiro</td><td>Brazil</td></tr>
+<tr><td>17</td><td>Joseph</td><td>THompson</td><td>Moscow</td><td>Russia</td></tr>
+<tr><td>18</td><td>Margaret</td><td>Garcia</td><td>Shanghai</td><td>China</td></tr>
+<tr><td>19</td><td>Thomas</td><td>Martinez</td><td>Karachi</td><td>Pakistan</td></tr>
+
+</table>
+<script src="tables.js"></script>
+</body>
+</html>
