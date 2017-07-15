@@ -67,9 +67,9 @@ function showPage(start) {
     if(p==current) {
       links.innerHTML += "<button onClick='showPage(" + (p-1)*items + ")'>" + p + "</button>"
     } else if(p==2 && pages>9) {
-      links.innerHTML += "<button onClick='showPage(" + (p-1)*items + ")'>" + p + "</button>"
+      links.innerHTML += "<button onClick='showPage(" + (p-1)*items + ")'>" + p + "</button>..."
     } else if(p==pages-1 && pages>9) {
-      links.innerHTML += "<button onClick='showPage(" + (p-1)*items + ")'>" + p + "</button>"
+      links.innerHTML += "...<button onClick='showPage(" + (p-1)*items + ")'>" + p + "</button>"
     } else if(p==current-1) {
       links.innerHTML += "<button onClick='showPage(" + (p-1)*items + ")'>&lt;</button> ";
     } else if(p==current+1) {
